@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "اگر از این ویرایش قالب استفاده می‌کنید، لطفاً آن را با اطلاعات زیر معرفی کنید."
+title: "TMU Thesis Template: MSc and PhD LaTeX Templates"
+type: software
+authors:
+  - family-names: "Akbari"
+    given-names: "Shokoofeh"
+    affiliation: "Tarbiat Modares University"
+version: 1.0.0
+date-released: 2026-09-02
+repository-code: "https://github.com/shokoofe-akbari/TMU-Thesis-Template"
+url: "https://github.com/shokoofe-akbari/TMU-Thesis-Template/releases/latest"
+abstract: "قالب‌های مستقل LaTeX برای پایان‌نامه کارشناسی ارشد و رساله دکتری دانشکده علوم ریاضی دانشگاه تربیت مدرس."
+keywords:
+  - LaTeX
+  - XeLaTeX
+  - Persian
+  - thesis-template
+  - Tarbiat Modares University

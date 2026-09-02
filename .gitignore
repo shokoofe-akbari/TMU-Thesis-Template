@@ -1,0 +1,48 @@
+# LaTeX build products
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+*.xdy
+*.build-output.txt
+
+# Editor and temporary files
+*.bak
+*.ptd
+*.swp
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Distribution output
+dist/
+
+# PDFs are build products unless explicitly retained as previews
+*.pdf
+!MSc/Mas_Thesis_TMU.pdf
+!PhD/PhD_Thesis_TMU.pdf

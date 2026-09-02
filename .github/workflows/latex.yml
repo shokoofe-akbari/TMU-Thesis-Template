@@ -1,0 +1,96 @@
+name: LaTeX build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  repository-checks:
+    name: Repository checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Check relative Markdown links
+        run: python scripts/check-markdown-links.py
+
+  build:
+    name: ${{ matrix.degree }} / ${{ matrix.mode }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - degree: MSc
+            directory: MSc
+            main: Mas_Thesis_TMU.tex
+            entry: Mas_Thesis_TMU.tex
+            jobname: Mas_Thesis_TMU
+            mode: bib
+          - degree: MSc
+            directory: MSc
+            main: Mas_Thesis_TMU.tex
+            entry: ManualBuildTest.tex
+            jobname: ManualBuildTest
+            mode: manual
+          - degree: PhD
+            directory: PhD
+            main: PhD_Thesis_TMU.tex
+            entry: PhD_Thesis_TMU.tex
+            jobname: PhD_Thesis_TMU
+            mode: bib
+          - degree: PhD
+            directory: PhD
+            main: PhD_Thesis_TMU.tex
+            entry: ManualBuildTest.tex
+            jobname: ManualBuildTest
+            mode: manual
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Prepare manual bibliography wrapper
+        if: matrix.mode == 'manual'
+        working-directory: ${{ matrix.directory }}
+        shell: bash
+        run: printf '%s\n' '\def\TMUBibliographyMode{manual}' '\input{${{ matrix.main }}}' > ManualBuildTest.tex
+
+      - name: Compile with XeLaTeX
+        uses: xu-cheng/latex-action@v4
+        with:
+          texlive_version: 2024
+          os: debian
+          working_directory: ${{ matrix.directory }}
+          root_file: ${{ matrix.entry }}
+          latexmk_use_xelatex: true
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Reject unresolved warnings
+        working-directory: ${{ matrix.directory }}
+        shell: bash
+        run: |
+          pattern='^!|LaTeX Error|Package .* Error|Undefined control sequence|Missing character:|^LaTeX Warning:|^Package .* Warning:|^Class .* Warning:|LaTeX Font Warning|Overfull \\[hv]box|Underfull \\[hv]box|There were undefined references|Citation .* undefined|\\endL or \\endR problem'
+          if grep -En "$pattern" '${{ matrix.jobname }}.log'; then
+            echo 'Unresolved LaTeX warnings were found.'
+            exit 1
+          fi
+          if test -f '${{ matrix.jobname }}.blg' && grep -En '\bWARN(ING)?\b|\bERROR\b' '${{ matrix.jobname }}.blg'; then
+            echo 'Unresolved Biber warnings were found.'
+            exit 1
+          fi
+
+      - name: Upload PDF preview
+        if: matrix.mode == 'bib'
+        uses: actions/upload-artifact@v6
+        with:
+          name: ${{ matrix.degree }}-PDF
+          path: ${{ matrix.directory }}/${{ matrix.jobname }}.pdf
+          if-no-files-found: error

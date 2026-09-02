@@ -1,0 +1,66 @@
+\chapter{صورت‌بندی مسئله}
+\label{chap1}
+
+\section{بیان مسئله و دامنهٔ مطالعه}
+\label{sec11}
+
+تابع حالت $x:[0,T]\to\R^n$ از مسئلهٔ مقدار اولیهٔ پارامتری
+\begin{equation}
+  \dot{x}(t)=f\bigl(t,x(t);\theta\bigr),
+  \qquad x(0)=x_0
+  \label{eq:model}
+\end{equation}
+پیروی می‌کند. در این رابطه، $x_0\in\R^n$ مقدار اولیه، $\theta\in\Theta\subset\R^p$ بردار پارامترها و $f$ میدان برداری سامانه است. مشاهدات گسسته در زمان‌های $t_i$ با مدل
+\begin{equation}
+  y_i=h\bigl(x(t_i;\theta)\bigr)+\varepsilon_i,
+  \qquad i=1,\ldots,m,
+  \label{eq:observation}
+\end{equation}
+نمایش داده می‌شوند؛ در آن، $h$ عملگر مشاهده و $\varepsilon_i$ خطای اندازه‌گیری است. یک صورت متداول برای مسئلهٔ معکوس، کمینه‌سازی تابع
+\begin{equation}
+  J(\theta)=\frac{1}{m}\sum_{i=1}^{m}
+  \left\lVert y_i-h\bigl(x(t_i;\theta)\bigr)\right\rVert^2
+  \label{eq:objective}
+\end{equation}
+روی مجموعهٔ مجاز $\Theta$ است.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[totalheight=50mm,width=100mm]{figure1}
+  \caption{نمایش شماتیک ارتباط مدل، متغیر حالت و دادهٔ مشاهده‌شده}
+  \label{fig1}
+\end{figure}
+
+\section{مدل معیار}
+
+مدل یک‌بعدی
+\begin{equation}
+  \dot{x}(t)=-\theta x(t),
+  \qquad x(0)=1,
+  \qquad \theta>0,
+  \label{eq:test-model}
+\end{equation}
+به‌عنوان نمونهٔ محاسباتی در نظر گرفته می‌شود. جواب دقیق آن $x(t;\theta)=\exp(-\theta t)$ است. این مدل در عین سادگی، امکان نمایش وجود و یکتایی جواب، تحلیل خطای روش عددی و برآورد پارامتر از داده را فراهم می‌کند.
+
+\section{فرض‌ها و پارامترهای نمونه}
+
+مجموعهٔ پارامترها فشرده، میدان برداری نسبت به متغیر حالت لیپشیتس و خطاهای مشاهده دارای میانگین صفر و واریانس محدود فرض می‌شوند. مقادیر جدول \ref{tab:model-parameters} تنها یک سناریوی ساختگی سازگار با فصل‌های بعد را مشخص می‌کنند.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{ccc}
+    \toprule
+    کمیت & نماد & مقدار نمونه \\
+    \midrule
+    زمان نهایی & $T$ & $1$ \\
+    مقدار اولیه & $x_0$ & $1$ \\
+    پارامتر مرجع & $\theta^{\ast}$ & $0.8$ \\
+    فاصلهٔ نمونه‌برداری & $\Delta t_{\mathrm{obs}}$ & $0.1$ \\
+    بعد فضای حالت & $n$ & $1$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{پارامترهای سناریوی ساختگی مدل معیار}
+  \label{tab:model-parameters}
+\end{table}
+
+صورت کلی جریان اطلاعات در شکل \ref{fig1} و پارامترهای مدل معیار در جدول \ref{tab:model-parameters} آمده‌اند. این تفکیک، پارامترهای فیزیکی یا مدل‌محور را از تنظیمات عددی جدا نگه می‌دارد.

@@ -1,0 +1,55 @@
+name: گزارش خطا
+description: گزارش یک خطای قابل‌بازتولید در قالب، پردازش یا خروجی PDF
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: dropdown
+    id: degree
+    attributes:
+      label: مقطع
+      options:
+        - کارشناسی ارشد
+        - دکتری
+        - هر دو
+    validations:
+      required: true
+  - type: dropdown
+    id: bibliography
+    attributes:
+      label: شیوه منابع
+      options:
+        - bib / Biber
+        - کتاب‌نامه دستی
+        - نامرتبط
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: محیط اجرا
+      description: سیستم‌عامل، نسخه TeX Live و ویرایشگر
+      placeholder: Windows 11, TeX Live 2024, TeXstudio
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: شرح خطا
+      description: رفتار مشاهده‌شده و رفتار مورد انتظار
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: بخش مرتبط گزارش ساخت
+      description: فقط خطوط لازم و بدون اطلاعات شخصی درج شوند.
+      render: text
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: کنترل حریم خصوصی
+      options:
+        - label: اطلاعات شخصی، امضاها و داده‌های محرمانه حذف شده‌اند.
+          required: true
+        - label: خطا با آخرین Release نیز بازتولید شده است.
+          required: true

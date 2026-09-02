@@ -1,0 +1,37 @@
+name: Release packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Build independent ZIP packages
+        shell: pwsh
+        run: .\scripts\package-release.ps1 -Version '${{ github.ref_name }}'
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create '${{ github.ref_name }}'
+          .\dist\TMU-Thesis-MSc.zip
+          .\dist\TMU-Thesis-PhD.zip
+          .\dist\SHA256SUMS.txt
+          --verify-tag
+          --title 'TMU Thesis Template ${{ github.ref_name }}'
+          --generate-notes

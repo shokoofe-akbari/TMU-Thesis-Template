@@ -1,0 +1,34 @@
+name: پیشنهاد بهبود
+description: پیشنهاد یک قابلیت یا بهبود سازگار با قالب
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: dropdown
+    id: scope
+    attributes:
+      label: دامنه تغییر
+      options:
+        - کارشناسی ارشد
+        - دکتری
+        - هر دو
+        - مستندات و ابزارها
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: مسئله یا نیاز
+      description: کاربرد و دلیل نیاز به این تغییر توضیح داده شود.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: راه‌حل پیشنهادی
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: منبع یا نمونه معتبر
+      description: برای تغییرات اداری، پیوند یا سند رسمی درج شود.

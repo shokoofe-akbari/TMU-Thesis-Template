@@ -1,0 +1,64 @@
+\chapter{نتایج تحلیلی}
+\label{chap2}
+
+\section{خوش‌تعریفی مسئلهٔ مستقیم}
+
+\begin{definition}
+تابع $f$ نسبت به متغیر دوم با ثابت $L>0$ لیپشیتس است، هرگاه
+\begin{equation}
+  \left\lVert f(t,x)-f(t,y)\right\rVert
+  \leq L\left\lVert x-y\right\rVert
+\end{equation}
+برای همه‌ی نقاط دامنه برقرار باشد.
+\end{definition}
+
+\begin{theorem}[وجود و یکتایی]
+اگر $f$ روی $[0,T]\times\R^n$ پیوسته و نسبت به متغیر حالت به‌طور یکنواخت لیپشیتس باشد، مسئلهٔ \eqref{eq:model} برای هر $x_0\in\R^n$ روی بازهٔ $[0,T]$ جواب یکتا دارد.
+\label{thm:existence-uniqueness}
+\end{theorem}
+
+\begin{proof}
+روی فضای $C([0,\tau];\R^n)$ نگاشت
+\[
+  (\mathcal{T}x)(t)=x_0+\int_0^t f\bigl(s,x(s);\theta\bigr)\,\mathrm{d}s
+\]
+تعریف می‌شود. برای $\tau<1/L$، این نگاشت انقباضی است و قضیهٔ نقطهٔ ثابت باناخ وجود و یکتایی جواب را روی $[0,\tau]$ نتیجه می‌دهد. تکرار همین استدلال روی زیر‌بازه‌های متوالی، جواب یکتا را تا زمان $T$ امتداد می‌دهد \cite{bs04}.
+\end{proof}
+
+\section{وابستگی پیوسته به دادهٔ اولیه}
+
+\begin{proposition}
+اگر $x$ و $\widetilde{x}$ جواب‌های معادلهٔ \eqref{eq:model} با مقادیر اولیهٔ $x_0$ و $\widetilde{x}_0$ باشند، آنگاه
+\begin{equation}
+  \left\lVert x(t)-\widetilde{x}(t)\right\rVert
+  \leq \exp(Lt)\left\lVert x_0-\widetilde{x}_0\right\rVert,
+  \qquad 0\leq t\leq T.
+  \label{eq:continuous-dependence}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+تفاضل صورت انتگرالی دو جواب و نامساوی لیپشیتس، کران
+\[
+  \left\lVert x(t)-\widetilde{x}(t)\right\rVert
+  \leq \left\lVert x_0-\widetilde{x}_0\right\rVert
+  +L\int_0^t\left\lVert x(s)-\widetilde{x}(s)\right\rVert\,\mathrm{d}s
+\]
+را می‌دهد. نامساوی گرونوالم مستقیماً رابطهٔ \eqref{eq:continuous-dependence} را نتیجه می‌دهد.
+\end{proof}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[totalheight=50mm,width=100mm]{figure2}
+  \caption{نمایش شماتیک وابستگی مسیر جواب به دادهٔ اولیه}
+  \label{fig2}
+\end{figure}
+
+\section{شناسایی‌پذیری پارامتر}
+
+پارامتر $\theta$ در زمان‌های مشاهدهٔ $t_1,\ldots,t_m$ شناسایی‌پذیر است، هرگاه برابری
+\[
+  h\bigl(x(t_i;\theta_1)\bigr)=h\bigl(x(t_i;\theta_2)\bigr),
+  \qquad i=1,\ldots,m,
+\]
+تنها در حالت $\theta_1=\theta_2$ برقرار باشد. در مدل معیار \eqref{eq:test-model} با مشاهدهٔ مستقیم حالت، هر مشاهده در یک زمان مثبت برای تشخیص دو مقدار متفاوت و مثبت پارامتر کافی است. این نتیجهٔ ساختاری، مستقل از دقت الگوریتم عددی و میزان نویز داده است.

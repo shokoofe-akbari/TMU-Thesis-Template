@@ -1,0 +1,56 @@
+TMU Thesis Template - Licensing Notice
+
+Copyright (c) 2026 Shokoofeh Akbari
+
+This repository is a composite distribution. Different components are subject
+to different terms. No single license overrides third-party notices, font
+licenses, university rights, trademarks, or notices retained in the original
+template files.
+
+1. Newly authored repository material
+
+To the extent that Shokoofeh Akbari owns the copyright, the newly authored
+documentation, build/release automation, examples, and original modifications
+in this repository are made available under the MIT License below.
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of the covered material and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is furnished
+to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+2. Original template material
+
+The LaTeX templates predate this repository and retain their original author
+and contributor notices. The MIT grant above applies only to rights held by
+Shokoofeh Akbari and does not relicense rights held by the original authors or
+other contributors. Users and redistributors remain responsible for confirming
+that their use is permitted by the relevant rights holders.
+
+3. Fonts
+
+Bundled fonts are distributed under their own licenses. The applicable license
+texts are stored in the licenses directory, and the file-to-license mapping is
+listed in THIRD_PARTY_NOTICES.md. Font licenses are not replaced by the MIT
+License.
+
+4. University names, forms, and visual assets
+
+Tarbiat Modares University names, logos, forms, and related institutional
+assets are excluded from the MIT License. They remain subject to the rights,
+policies, and trademarks of their respective owners. Their presence in this
+unofficial academic template does not imply university endorsement.

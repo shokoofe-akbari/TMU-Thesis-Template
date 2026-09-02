@@ -1,0 +1,56 @@
+\chapter{مطالعهٔ موردی با داده‌های ساختگی}
+\label{chap4}
+
+\section{طراحی مطالعه}
+
+داده‌های ساختگی از جواب دقیق مدل معیار \eqref{eq:test-model} با پارامتر مرجع $\theta^{\ast}=0.8$ تولید می‌شوند:
+\begin{equation}
+  y_i=\exp(-\theta^{\ast}t_i)+\varepsilon_i,
+  \qquad t_i=0,0.1,\ldots,1.
+  \label{eq:synthetic-data}
+\end{equation}
+خطاهای $\varepsilon_i$ مستقل، با میانگین صفر و انحراف معیار $\sigma$ در نظر گرفته شده‌اند. برآورد عددی پارامتر از کمینه‌سازی
+\begin{equation}
+  \widehat{\theta}_{\Delta t}
+  =\argmin_{\theta\in[0.1,2]}
+  \frac{1}{m}\sum_{i=1}^{m}
+  \left(y_i-x_{\Delta t}(t_i;\theta)\right)^2
+  \label{eq:parameter-estimate}
+\end{equation}
+به‌دست می‌آید؛ $x_{\Delta t}$ پاسخ گسستهٔ مدل است.
+
+\section{خلاصهٔ نتایج نمونه}
+
+اعداد جدول \ref{tab:synthetic-results} صرفاً برای نمایش ساختار گزارش نتایج درج شده‌اند و حاصل یک مطالعهٔ واقعی نیستند. ستون خطای پارامتر، فاصلهٔ برآورد از مقدار مرجع را نشان می‌دهد و $\operatorname{RMSE}$ بر پایهٔ رابطهٔ \eqref{eq:rmse} محاسبه می‌شود.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{cccccc}
+    \toprule
+    سناریو & $\sigma$ & $\Delta t$ & $\widehat{\theta}$
+    & $\lvert\widehat{\theta}-\theta^{\ast}\rvert$
+    & $\operatorname{RMSE}$ \\
+    \midrule
+    بدون نویز & $0.00$ & $0.01$ & $0.800$ & $0.000$ & $0.000$ \\
+    نویز کم & $0.01$ & $0.01$ & $0.806$ & $0.006$ & $0.009$ \\
+    نویز متوسط & $0.05$ & $0.01$ & $0.772$ & $0.028$ & $0.046$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{نمونهٔ گزارش برآورد پارامتر برای داده‌های ساختگی}
+  \label{tab:synthetic-results}
+\end{table}
+
+در این نمونه، افزایش دامنهٔ نویز با افزایش خطای برآورد همراه است. این مشاهده تنها رفتار سناریوی نمایش‌داده‌شده را توصیف می‌کند و بدون تکرارهای مستقل، فاصلهٔ اطمینان و تحلیل حساسیت قابل تعمیم نیست.
+
+\section{تحلیل حساسیت عددی}
+
+برای یک مجموعهٔ دادهٔ ثابت، وابستگی برآورد به گام زمانی با شاخص
+\begin{equation}
+  S_{\Delta t}=
+  \frac{\left\lvert
+  \widehat{\theta}_{\Delta t/2}-\widehat{\theta}_{\Delta t}
+  \right\rvert}
+  {1+\left\lvert\widehat{\theta}_{\Delta t/2}\right\rvert}
+  \label{eq:step-sensitivity}
+\end{equation}
+سنجیده می‌شود. کوچک‌بودن این شاخص، پایداری برآورد نسبت به پالایش گام را نشان می‌دهد؛ بااین‌حال، دربارهٔ کفایت مدل یا سازگاری آن با دادهٔ واقعی حکمی صادر نمی‌کند. اعتبار عددی، کیفیت برازش و اعتبار علمی مدل سه ارزیابی متمایز باقی می‌مانند.

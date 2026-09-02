@@ -1,0 +1,404 @@
+%
+%
+%فایل "مادر"
+%
+%
+%فایل حاضر قالب خام پایان‌نامه ارشد برای تمامی رشته‌های دانشکده علوم ریاضی دانشگاه تربیت مدرس تهران می‌باشد. این قالب به درخواست جناب آقای دکتر ناصر گلستانی، معاون پژوهشی وقت دانشکده علوم ریاضی دانشگاه تربیت مدرس، و با کمک دوستان عزیز آقایان رضا یغمائیان و ایوب احمدی، دانشجویان دکتری دانشگاه تربیت مدرس ورودی سال 1399 تهیه شده است.
+%
+%ویرایش و به‌روزرسانی فنی: شکوفه اکبری، دانشجوی دکتری ریاضی و دبیر انجمن علمی دانشجویی ریاضی کاربردی دانشگاه تربیت مدرس
+%تاریخ ویرایش: ۱۱ شهریور ۱۴۰۵ ــ ۲ سپتامبر ۲۰۲۶
+%شرح کامل اصلاحات در فایل UPDATE.md ثبت شده است.
+%
+%
+%راهنمای استفاده، تنظیم منابع و رفع اشکال در README.md و پوشه docs مخزن قرار دارد.
+%
+%
+\providecommand{\TMUBibliographyMode}{bib}
+\def\TMUManualBibliographyMode{manual}
+\ifx\TMUBibliographyMode\TMUManualBibliographyMode
+  \PassOptionsToPackage{pagebackref}{hyperref}
+\fi
+\documentclass[msc]{Mas_Thesis_TMU} 
+%
+%
+%دستور زیر برای چاپ فایل خروجی بصورت پشت و رو است. (برای چاپ بصورت تک رو، عبارت twosidetrue را دستور پایین حذف و عبارت twosidefalse را جایگزین آن کنید)
+\csname@twosidetrue\endcsname 
+%
+%
+%شش بسته که در زیر می‌آید، توسط انجمن ریاضی آمریکا (AMS) ارائه شده است.
+%بسته زیر مجموعه‌ای از فونت‌ها و نمادهای ریاضی (مانند \mathbb، \mathcal و ...) ارائه می‌دهد.
+\usepackage{amsfonts}
+
+%بسته زیر برای نوشتن فرمول‌ها و معادلات ریاضی با کیفیت حرفه‌ای (مانند محیط‌های align، gather، ماتریس‌ها و ...) است.
+\usepackage{amsmath}
+
+%بسته زیر یک افزونه برای بسته قدرتمند amsmath است که امکانات اضافی و بهبودیافته‌ای برای نوشتن فرمول‌های ریاضی و تنظیمات ریاضی ارائه می‌دهد. 
+\usepackage{mathtools}
+
+%بسته زیر برای رسم دیاگرام‌های جابجایی ساده است.
+\usepackage{amscd}
+
+%بسته زیر برای دسترسی به نمادهای پیشرفته و حرفه‌ای ریاضی (مانند \mathbb، \leq، \pmod، \rightarrow و ...) است.
+\usepackage{amssymb} 
+
+%بسته زیر برای تعریف و مدیریت مطالب عنوان‌دار (مانند قضیه‌ها، لم‌ها، تعاریف و ...) است.
+\usepackage{amsthm}
+
+%بسته زیر برای تنظیم متن با اندازه‌های دلخواه غیر از اندازه‌های معمول \tiny، \scriptsize، \small، و ... برای فونت‌ها است. 
+\usepackage{anyfontsize}
+
+%بسته زیر مربوط به مدیریت و فرمت‌دهی به بخش‌های ضمیمه است.
+\usepackage{appendix}
+
+%بسته زیر برای ترسیم خطوط نقطه‌چین و خط‌چین در جدول‌ها و ماتریس‌ها استفاده می‌شود.
+\usepackage{arydshln}
+
+%بسته زیر برای ایجاد و نمایش آرایه‌ها و ماتریس‌های بلوکی (block arrays and matrices) استفاده می‌شود.
+\usepackage{blkarray}
+
+%بسته زیر برای رسم حرفه‌ای خطوط و فاصله‌گذاری جدول‌ها استفاده می‌شود.
+\usepackage{booktabs}
+
+%بسته زیر برای وارد کردن کپشن (زیرنویس) است. همچنین دستور بعدی برای تنظیم اندازه متن کپشن می‌باشد. 
+\usepackage{caption}
+\captionsetup{font=footnotesize}
+
+%دستور زیر برای ایجاد مراجع جداگانه برای هر فصل است.
+%\usepackage{chapterbib}
+
+%بسته زیر برای تغییر و کنترل شمارشگرهای (counters) مختلف در سند به کار می‌رود. (این بسته به شما امکان می‌دهد که نحوه شماره‌گذاری عناصری مانند جداول، شکل‌ها، بخش‌ها، زیربخش‌ها، معادلات و سایر اجزای سند را به ‌صورت دلخواه تغییر دهید.(
+\usepackage{chngcntr}
+
+%بسته زیر برای بهبود بخشیدن به ارجاع دادن بطور خودکار، بدون نیاز به وارد کردن دستی عنوان، در داخل متن به مرجع یا یک مطلب عنوان‌دار (مانند قضیه، تعریف، لم، و ...) در همان متن استفاده می‌شود.
+\usepackage{cleveref}
+
+%دستور زیر برای نمایش دادن تاریخ انگلیسی-آمریکایی بطور اتوماتیک است که امکانات بیشتری نسبت به دسور ساده \today دارد.
+\usepackage[en-US]{datetime2}
+
+%بسته زیر برای استفاده از محیط‌های بصورت لیست، یعنی enumerate (شماره‌دار)، itemize (بدون شماره) است.
+\usepackage{enumitem}
+
+%بسته زیر برای استفاده از فونت‌های ریاضی مانند \infty، \prime، \vdots، و ... است.
+\usepackage{fdsymbol}
+
+%بسته زیر برای مدیریت و کنترل بهتر محل قرارگیری اشیاء شناور (floats) مانند تصاویر، جداول و دیاگرام‌ها استفاده می‌شود.
+\usepackage{float}
+
+%بسته زیر برای استفاده از فایل‌هایی که به صورت عکس یا pdf است، می‌باشد.
+\usepackage{graphicx}
+
+%بسته زیر برای ارجاع دادن در داخل متن به مرجع یا یک مطلب عنوان‌دار (مانند قضیه، تعریف، لم، و ...) در همان متن استفاده می‌شود.
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=magenta,urlcolor=Plum}
+
+%بسته زیر برای تنظیم رمزگذاری ورودی، مانند ایجاد فاصله اولین کلمه از ابتدای خط در محیط‌های چپ‌چین مانند flushleft، است.
+% فایل منبع با UTF-8 ذخیره شده و XeLaTeX آن را مستقیماً می‌خواند.
+
+%بسته زیر برای نمایش و تحلیل تنظیمات صفحه‌بندی (layout) یک سند به کار می‌رود. (تنظیم ابعاد و ویژگی‌های مختلف صفحه، مانند حاشیه‌ها، عرض و ارتفاع متن، فاصله بین عنوان‌ها و سرفصل‌ها، و سایر ویژگی‌های مرتبط با چیدمان و صفحه‌بندی با این بسته است.(
+\usepackage{layout}
+
+%بسته زیر برای تولید متن نمونه (dummy text) یا متن ساختگی استفاده می‌شود. (این بسته به شما امکان می‌دهد تا براحتی متن‌های آزمایشی را برای تست چیدمان، قالب‌بندی و طراحی در سند خود قرار دهید.(
+\usepackage{lipsum}
+
+%بسته زیر برای استفاده از فونت‌های اسکریپتی ریاضی (script fonts) مانند مجموعه‌ها، فضاها، توابع و ... است که با دستور \mathscr استفاده می‌شود.
+\usepackage{mathrsfs}
+
+%بسته زیر برای دو ستونه یا چند ستونه کردن متن است. (با این دستور می‌توان متن را تا حداکثر 10 ستون نوشت) 
+\usepackage{multicol} 
+
+%بسته زیر برای ادغام کردن چند سطر یک سلول در یک جدول است.
+\usepackage{multirow}  
+
+%بسته زیر برای رسم دیاگرام‌های برداری (فلش‌دار) است.
+\usepackage{pb-diagram}
+
+%بسته زیر برای قرار دادن متون پاراگرافی (به‌صورت چپ‌چین یا راست‌چین) در داخل اشکال هندسی رسم‌شده یا به ‌طور کلی در داخل محیط‌های گرافیکی، مانند آنچه در بسته tikz ایجاد می‌شود، استفاده می‌شود. هدف اصلی این بسته، امکان درج متون به‌صورت پاراگراف (نه فقط یک خط) در اشیاء گرافیکی است.
+\usepackage{ptext}
+
+%دستور زیر برای نمایش دادن برچسب‌هایی (label) که در زمان تایپ استفاده کرده‌اید، در فایل pdf خروجی است.
+%\usepackage{showkeys}
+
+%بسته زیر برای قرار دادن متن یا اشیاء (مثل تصویر، جعبه متن، جدول و ...) در موقعیت دقیق و مطلق روی صفحه، فارغ از جریان عادی متن است.
+\usepackage[absolute,overlay]{textpos}
+
+%بسته زیر یک ابزار بسیار قدرتمند برای رسم اشکال، دیاگرام‌ها، نمودارها، و حتی تصاویر پیچیده است. 
+\usepackage{tikz}
+
+%بسته زیر برای سفارشی ‌سازی عناوین بخش‌ها و زیربخش‌های سند استفاده می‌شود. (این بسته به شما اجازه می‌دهد تا نحوه نمایش و قالب‌بندی عناوین بخش‌ها (مانند \section، \subsection، و ...) را به دلخواه تغییر دهید و کنترل بیشتری بر روی ظاهر عناوین داشته باشید.(
+\usepackage{titlesec} 
+\titleformat{\chapter}[display] {\normalfont\sffamily\huge\bfseries\color{blue}} {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+%بسته زیر برای اضافه شدن خودکار کتاب‌نامه، نمایه، فصل‌ها، و ... به فهرست است.
+\usepackage[nottoc]{tocbibind}
+
+%بسته زیر برای استفاده یک متن کنار شکل یا جدول است. 
+\usepackage{wrapfig}
+
+%بسته زیر برای مدیریت و اعمال رنگ‌ها در متن، جداول، نمودارها و ... است.
+\usepackage{xcolor}
+
+% شیوه‌ی کتاب‌نامه: bib برای References.bib و manual برای References.tex
+\usepackage{etoolbox}
+\newif\ifTMUUseBibFile
+\ifdefstring{\TMUBibliographyMode}{bib}{%
+  \TMUUseBibFiletrue
+}{%
+  \ifdefstring{\TMUBibliographyMode}{manual}{%
+    \TMUUseBibFilefalse
+  }{%
+    \PackageError{TMU-Thesis}{Invalid bibliography mode: \TMUBibliographyMode}{Use bib or manual.}%
+  }%
+}
+\ifTMUUseBibFile
+  \usepackage[
+    backend=biber,
+    style=numeric,
+    sorting=none,
+    defernumbers=true,
+    giveninits=true,
+    maxbibnames=99
+  ]{biblatex}
+  \addbibresource{Conductors/References.bib}
+\fi
+
+%بسته زیر برای تایپ متن به زبان فارسی است.
+\usepackage{xepersian} 
+
+%بسته زیر برای استفاده از گراف‌ها و دیاگرام‌ها است.
+\usepackage[all]{xy} 
+%
+%
+%دستور زیر برای استفاده از شکل‌ها از پوشه \Figures است.
+\graphicspath{{Figures/}} 
+
+%دستور زیر برای تنظیم فاصله بین دو خط در کل متن است.
+\linespread{1.8}
+
+% فونت‌های محلی همین پوشه
+\settextfont[
+  Path=Fonts/,
+  Extension=.ttf,
+  UprightFont={XB Niloofar},
+  BoldFont={XB Niloofar},
+  BoldFeatures={FakeBold=2},
+  ItalicFont={XB Niloofar},
+  ItalicFeatures={FakeSlant=0.20},
+  BoldItalicFont={XB Niloofar},
+  BoldItalicFeatures={FakeBold=2,FakeSlant=0.20},
+  Scale=1.1,
+  Script=Arabic
+]{XB Niloofar}
+
+\setdigitfont[
+  Path=Fonts/,
+  Extension=.ttf,
+  UprightFont={XB Niloofar},
+  BoldFont={XB Niloofar},
+  BoldFeatures={FakeBold=2},
+  ItalicFont={XB Niloofar},
+  ItalicFeatures={FakeSlant=0.20},
+  BoldItalicFont={XB Niloofar},
+  BoldItalicFeatures={FakeBold=2,FakeSlant=0.20},
+  Scale=1.1,
+  Script=Arabic
+]{XB Niloofar}
+
+\defpersianfont\nastaliq[
+  Path=Fonts/,
+  Extension=.ttf,
+  UprightFont={NotoNastaliqUrdu-Regular},
+  Scale=1.5,
+  Script=Arabic
+]{NotoNastaliqUrdu-Regular}
+
+\setlatintextfont[
+  Path=Fonts/,
+  Extension=.otf,
+  UprightFont={texgyretermes-regular},
+  BoldFont={texgyretermes-bold},
+  ItalicFont={texgyretermes-italic},
+  BoldItalicFont={texgyretermes-bolditalic}
+]{texgyretermes-regular}
+%
+%
+%دستورهای زیر برای نمایش دادن ترجمه عنوان‌های معمول در ریاضی، مانند تعریف، قضیه، گزاره، لم و ... هستند. در زمان تایپ، از عبارت‌هایی در {} اول بعد از کلمه \newtheorem آمده‌اند، استفاده کنید.  
+\theoremstyle{definition} 
+\newtheorem{definition}{تعریف}[section] 
+\newtheorem{remark}{ملاحظه} 
+\newtheorem*{notation}{نمادگذاری} 
+\newtheorem*{conjecture}{حدس} 
+\theoremstyle{plain} 
+\newtheorem{theorem}[definition]{قضیه} 
+\newtheorem{lemma}[definition]{لم} 
+\newtheorem{proposition}[definition]{گزاره} 
+\newtheorem{corollary}[definition]{نتیجه} 
+\newtheorem{question}{سؤال} 
+\newtheorem{note}{نکته}
+
+\theoremstyle{definition} 
+\newtheorem{example}[definition]{مثال} 
+\theoremstyle{remark} 
+%
+%
+%برای راحتی کار در تایپ نماد مجموعه‌های معمول در ریاضی، مانند اعداد طبیعی، اعداد صحیح، اعداد گویا و ...، از عبارت‌هایی که در {} اول بعد از کلمه \newcommand آمده‌اند، استفاده کنید.  
+\newcommand{\N}{\mathbb{N}} 
+\newcommand{\Z}{\mathbb{Z}} 
+\newcommand{\Q}{\mathbb{Q}} 
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\CC}{\mathbb{C}} 
+\newcommand{\Prime}{\mathbb{P}} 
+\newcommand{\Expect}{\mathbb{E}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\mat}[1]{\boldsymbol{#1}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+%دستور زیر برای مواردی است که شکل یا تصویر نیازی به کپشن (زیرنویس) ندارد. در چنین مواقعی، بجای \caption{}، باید \nocaption قرار بگیرد.
+\newcommand{\nocaption}{%
+  \refstepcounter{figure}%
+  \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}}%
+  \begin{center}
+    {\captionsetup{font=footnotesize}
+     \captionfont \figurename~\thefigure}
+  \end{center}
+}
+
+%برای اعمال نیم‌فاصله، کافیست در بین حروف مدنظر، کلیدهای Ctrl+Shift+2 را فشار دهید. دستور زیر برای وارد کردن نیم‌فاصله بصورت دستی است.
+\newcommand*{\nf}{^^^^200c}
+%
+%
+\begin{document}   
+
+%از کشیده‌شدن ناموزون فاصله‌های عمودی در صفحات دارای شکل و جدول جلوگیری می‌کند.
+\raggedbottom
+
+%دستور زیر برای تنظیم فاصله بین دو خط در بخش‌های خاص متن مانند محیط \begin{}-\end{} است.
+\baselineskip=.75cm 
+
+%دستور زیر برای شماره‌گذاری صفحات بعد از این دستور بصورت حروف الفبای فارسی، یعنی آ، ب، پ، و ... است.
+\pagenumbering{harfi} 
+%دستورهای دیگر برای شماره‌گذاری صفحات مذکور (برای استفاده، کلمه اول هر خط را متناسب با نیاز خود داخل {}، بجای کلمه harfi، قرار دهید):
+%arabic --> 1, 2, 3, ...
+%roman --> i, ii, iii, ...
+%Roman --> I, II, III, ...
+%alph --> a, b, c, ...
+%Alph --> A, B, C, ... 
+%
+%
+
+%دستور زیر برای وارد کردن تصویر عبارت "بسم اللله الرحمن الرحیم" است. در صورت تمایل برای تغییر دادن تصویر پیش‌فرض، وارد پوشه Attributes شوید و تصویر مد نظر خود را مطابق نکات اشاره شده در فایل Besmellah.tex جایگزین کنید.
+\input{Attributes/Besmellah}
+
+%برای وارد کردن مشخصات خود و امضاء هیئت داوران، وارد پوشه Attributes شوید و اطلاعات خود را در فایل Ta'id.tex وارد کنید.
+\input{Attributes/Ta'id}
+
+\newpage
+
+%دستور زیر برای وارد کردن مشخصات و امضاء خود در آیین‌نامه حق مالکیت است. (پوشه Attributes، فایل (Malekiat.tex
+\input{Attributes/Malekiat}
+
+\newpage
+
+%دستور زیر برای وارد کردن مشخصات و امضاء خود در آیین‌نامه چاپ است. (پوشه Attributes، فایل (Chap.tex
+\input{Attributes/Chap}
+
+\newpage
+
+%دستور زیر برای وارد کردن مشخصات خود و پایان‌نامه به زبان فارسی است. برای واردن کردن اطلاعات شخصی و اطلاعات مربوط به رساله خود، وارد پوشه Attributes شوید و اطلاعات را در فایل Fa-Attributes.tex وارد کنید.
+\input{Attributes/Fa-Attributes}
+
+\newpage 
+
+%دستور زیر برای وارد کردن متن تقدیم است. (پوشه Attributes، فایل (Taqdim.tex
+\input{Attributes/Taqdim}
+
+\newpage
+
+%دستور زیر برای وارد کردن متن سپاس است. (پوشه Attributes، فایل (Sepas.tex
+\input{Attributes/Sepas}
+
+%دستور زیر برای وارد کردن چکیده فارسی است. (پوشه Contents، فایل (Fa-Abstract.tex
+\input{Contents/Fa-Abstract}
+
+\newpage
+
+%دستور زیر برای وارد کردن مسئولیت اجتماعی و اثرگذاری رساله است. (پوشه Attributes، فایل (Mas'ouliat.tex
+\input{Attributes/Mas'ouliat}
+
+%دستور زیر برای وارد شدن فهرست فصل‌ها، بطور خودکار، است.
+\tableofcontents
+
+%دستور زیر برای وارد شدن فهرست شکل‌ها، بطور خودکار، است. (برای عدم استفاده از این دستور، علامت % را ابتدای دستورهای موجود در دو خط پایین اضافه کنید.(
+\listoffigures
+\clearpage 
+
+%دستور زیر برای وارد شدن فهرست جدول‌ها، بطور خودکار، است. (برای عدم استفاده از این دستور، علامت % را ابتدای دستورهای موجود در دو خط پایین اضافه کنید).
+\listoftables
+\clearpage 
+
+%دستور زیر برای شماره‌گذاری صفحات بعد از این دستور، به صورت عدد، یعنی 1، 2، 3، ... است.
+\pagenumbering{arabic} 
+
+%دستور زیر برای وارد کردن پیش‌گفتار است. (پوشه Contents، فایل (Introduction.tex
+\include{Contents/Introduction} 
+
+%دستور زیر برای وارد کردن فصل اول است. (پوشه Contents، فایل (Chapter1.tex
+\include{Contents/Chapter1} 
+
+%دستور زیر برای وارد کردن فصل دوم است. (پوشه Contents، فایل (Chapter2.tex
+\include{Contents/Chapter2} 
+
+%دستور زیر برای وارد کردن فصل سوم است. (پوشه Contents، فایل (Chapter3.tex
+\include{Contents/Chapter3} 
+
+%دستور زیر برای وارد کردن فصل چهارم است. (پوشه Contents، فایل (Chapter4.tex
+\include{Contents/Chapter4}
+
+%دستور زیر برای وارد کردن فصل پنجم است. (پوشه Contents، فایل (Chapter5.tex
+\include{Contents/Chapter5}
+
+%دستور زیر برای مشخص کردن شروع بخش ضمائم در یک سند استفاده می‌شود. (در صورتی که رساله شما دارای فصل ضمیمه نیست، علامت % را به ابتدای خط زیر و خط سوم (بعد از این خط) اضافه کنید.)
+\appendix 
+
+%دستور زیر برای وارد کردن فصل اول قسمت ضمیمه است. (پوشه Contents، فایل (Appendix1.tex 
+\include{Contents/Appendix1} 
+
+% کتاب‌نامه با توجه به حالت انتخاب‌شده در ابتدای فایل
+\ifTMUUseBibFile
+  \cleardoublepage
+  \phantomsection
+  \chapter*{\bibname}
+  \addcontentsline{toc}{chapter}{\bibname}
+  \markboth{\bibname}{\bibname}
+  \small
+  \printbibliography[keyword=persian,heading=none]
+  \begin{latin}
+    \printbibliography[notkeyword=persian,heading=none]
+  \end{latin}
+\else
+  \include{Conductors/References}
+\fi
+
+%دستور زیر برای تنظیم فاصله خط پایه (Baseline Skip) بین خطوط یک متن استفاده می‌شود. (این فاصله به معنای فاصله عمودی بین خطوط متوالی است که از خط پایه یک خط تا خط پایه خط بعدی اندازه‌گیری می‌شود.(
+\baselineskip=.75cm 
+
+%دستور زیر برای وارد کردن واژگان فارسی به انگلیسی است. (پوشه Conductors، فایل (Dicfa2en.tex
+\include{Conductors/Dicfa2en} 
+
+%دستور زیر برای وارد کردن واژگان انگلیسی به فارسی است. (پوشه Conductors، فایل (Dicen2fa.tex
+\include{Conductors/Dicen2fa} 
+
+%دستور زیر برای چاپ و نمایش فهرست نمایه (index) است.
+\printindex 
+
+%دستور زیر برای وارد کردن چکیده انگلیسی است. (پوشه Contents، فایل (En-Abstract.tex
+\input{Contents/En-Abstract}
+
+%دستور زیر برای وارد کردن مشخصات خود و پایان‌نامه به زبان انگلیسی است. (پوشه Attributes، فایل (En-Attributes.tex
+\input{Attributes/En-Attributes} 
+
+%دستور زیر برای ارجاع دادن به صفحه آخر داخل متن است. (برای این کار در هر قسمت از متن، از دستور \ref{LastPage} استفاده کنید.(
+\label{LastPage} 
+
+\end{document} 

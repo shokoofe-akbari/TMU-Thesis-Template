@@ -1,0 +1,77 @@
+\chapter{محاسبات عددی}
+\label{chap3}
+
+\section{گسسته‌سازی زمانی}
+
+برای گام زمانی $\Delta t>0$، روش اویلر صریح برای مسئلهٔ \eqref{eq:model} به‌صورت
+\begin{align}
+  t_{k+1} &= t_k+\Delta t, \\
+  x_{k+1} &= x_k+\Delta t\,f(t_k,x_k;\theta)
+  \label{eq:euler}
+\end{align}
+نوشته می‌شود. خطای نهایی در زمان $T$ با $e_{\Delta t}=\lVert x(T)-x_N\rVert$ سنجیده می‌شود، که در آن $N=T/\Delta t$ است.
+
+\section{مطالعهٔ همگرایی}
+
+برای مدل معیار \eqref{eq:test-model} با $\theta=1$ و $T=1$، جواب دقیق برابر $\exp(-t)$ و تقریب اویلر در زمان نهایی برابر $(1-\Delta t)^{1/\Delta t}$ است. مرتبهٔ تجربی از رابطهٔ
+\begin{equation}
+  p_{\Delta t}=
+  \frac{\log(e_{\Delta t}/e_{\Delta t/2})}{\log 2}
+  \label{eq:empirical-order}
+\end{equation}
+به‌دست می‌آید.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{cccc}
+    \toprule
+    $\Delta t$ & تعداد گام & $e_{\Delta t}$ & $p_{\Delta t}$ \\
+    \midrule
+    $0.20$ & $5$  & $4.020\times10^{-2}$ & --- \\
+    $0.10$ & $10$ & $1.920\times10^{-2}$ & $1.066$ \\
+    $0.05$ & $20$ & $9.394\times10^{-3}$ & $1.031$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{پالایش گام برای روش اویلر در مدل معیار}
+  \label{tab:convergence}
+\end{table}
+
+نزدیک‌شدن مرتبهٔ تجربی به یک در جدول \ref{tab:convergence} با مرتبهٔ نظری روش اویلر سازگار است. این بررسی تنها خطای گسسته‌سازی زمانی را ارزیابی می‌کند و جایگزین تحلیل خطای مدل یا عدم‌قطعیت داده نیست.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[totalheight=50mm,width=100mm]{figure3}
+  \caption{نمایش شماتیک مقایسهٔ جواب دقیق و تقریب عددی}
+  \label{fig3}
+\end{figure}
+
+\section{معیارهای ارزیابی}
+
+برای مجموعهٔ مشاهدات \eqref{eq:observation}، خطای میانگین مربعات و ریشهٔ آن به‌ترتیب به‌صورت
+\begin{align}
+  \operatorname{MSE}(\theta)
+  &=\frac{1}{m}\sum_{i=1}^{m}
+  \left\lVert y_i-h\bigl(x_i(\theta)\bigr)\right\rVert^2, \\
+  \operatorname{RMSE}(\theta)
+  &=\sqrt{\operatorname{MSE}(\theta)}
+  \label{eq:rmse}
+\end{align}
+تعریف می‌شوند. اگر $\theta^{\ast}$ مقدار مرجع و $\widehat{\theta}$ برآورد حاصل باشد، خطای نسبی پارامتر برابر است با
+\begin{equation}
+  E_{\theta}=
+  \frac{\left\lVert\widehat{\theta}-\theta^{\ast}\right\rVert}
+  {1+\left\lVert\theta^{\ast}\right\rVert}.
+  \label{eq:relative-parameter-error}
+\end{equation}
+برای داده‌های تصادفی، نتیجهٔ $R$ تکرار مستقل با میانگین و انحراف معیار نمونه
+\begin{align}
+  \overline{\theta}
+  &=\frac{1}{R}\sum_{r=1}^{R}\widehat{\theta}^{(r)}, \\
+  s_{\theta}
+  &=\left(
+  \frac{1}{R-1}\sum_{r=1}^{R}
+  \left\lVert\widehat{\theta}^{(r)}-\overline{\theta}\right\rVert^2
+  \right)^{1/2}
+  \label{eq:replicate-summary}
+\end{align}
+خلاصه می‌شود. $\operatorname{RMSE}$ کیفیت برازش، $E_{\theta}$ دقت برآورد و $s_{\theta}$ پراکندگی بین تکرارها را اندازه می‌گیرند. حساسیت نسبت به $\Delta t$ نیز منشأ عددی عدم‌دقت را جداگانه آشکار می‌کند؛ هیچ‌یک از این معیارها به‌تنهایی جایگزین دیگری نیست.

@@ -1,0 +1,32 @@
+\chapter{جزئیات بازتولیدپذیری}
+\label{chapp1}
+
+سناریوی محاسباتی فصل چهارم با $x_0=1$، $\theta^{\ast}=0.8$ و زمان‌های مشاهدهٔ $t_i=0,0.1,\ldots,1$ مشخص می‌شود. فرادادهٔ اجرای بازتولیدپذیر در جدول \ref{tab:run-settings} از پارامترهای علمی مدل جدا شده است.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{cc}
+    \toprule
+    مشخصه & مقدار نمونه \\
+    \midrule
+    نسخهٔ کد & \lr{v1.0.0} \\
+    شناسهٔ نسخه & \lr{a1b2c3d} \\
+    بذر مولد اعداد تصادفی & $20260902$ \\
+    روش عددی & اویلر صریح \\
+    گام زمانی & $0.01$ \\
+    آستانهٔ توقف & $10^{-8}$ \\
+    قالب ذخیره‌سازی & \lr{CSV} \\
+    \bottomrule
+  \end{tabular}
+  \caption{مشخصات اجرای محاسباتی}
+  \label{tab:run-settings}
+\end{table}
+
+هستهٔ محاسباتی روش اویلر همان رابطهٔ بازگشتی
+\begin{equation}
+  (t_{k+1},x_{k+1})=
+  \left(t_k+\Delta t,
+  x_k+\Delta t\,f(t_k,x_k;\theta)\right)
+  \label{eq:reproducible-step}
+\end{equation}
+است. ثبت ترتیب نقاط زمانی و تنظیمات جدول \ref{tab:run-settings}، بازسازی مسیر محاسباتی نمونه را ممکن می‌کند.

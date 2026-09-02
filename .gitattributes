@@ -1,0 +1,23 @@
+* text=auto eol=lf
+
+*.cmd text eol=crlf
+*.ps1 text eol=lf
+*.tex text eol=lf
+*.bib text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Preserve legacy TeX spacing and intentional Markdown hard line breaks.
+*.tex whitespace=-trailing-space
+*.cls whitespace=-trailing-space
+UPDATE.md whitespace=-trailing-space
+licenses/*.txt whitespace=-trailing-space
+
+*.ttf binary
+*.otf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.zip binary
