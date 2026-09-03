@@ -88,6 +88,12 @@ jobs:
             exit 1
           fi
 
+      - name: Install PDF validation tools
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes poppler-utils
+
       - name: Validate generated PDF
         working-directory: ${{ matrix.directory }}
         shell: bash
