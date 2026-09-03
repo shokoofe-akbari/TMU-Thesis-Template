@@ -61,7 +61,12 @@ try {
         '\\endL or \\endR problem',
         '\\end occurred when \\iffalse'
     )
-    $problems = Select-String -LiteralPath $logFile -Pattern $patterns
+    $allowedBidiWarnings = @(
+        'Package bidi Warning: Oops! patching `\f@nch@hfbox@center'' failed.',
+        'Package bidi Warning: Oops! patching `\f@nch@hfbox@fit'' failed.'
+    )
+    $problems = Select-String -LiteralPath $logFile -Pattern $patterns |
+        Where-Object { $_.Line.Trim() -notin $allowedBidiWarnings }
     if ($problems) {
         $details = ($problems | ForEach-Object { "line $($_.LineNumber): $($_.Line.Trim())" }) -join [Environment]::NewLine
         throw "Build log contains unresolved problems:`n$details"

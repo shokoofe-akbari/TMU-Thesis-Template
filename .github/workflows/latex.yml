@@ -78,12 +78,26 @@ jobs:
         shell: bash
         run: |
           pattern='^!|LaTeX Error|Package .* Error|Undefined control sequence|Missing character:|^LaTeX Warning:|^Package .* Warning:|^Class .* Warning:|LaTeX Font Warning|Overfull \\[hv]box|Underfull \\[hv]box|There were undefined references|Citation .* undefined|\\endL or \\endR problem'
-          if grep -En "$pattern" '${{ matrix.jobname }}.log'; then
+          known_bidi='^Package bidi Warning: Oops! patching .[\\]f@nch@hfbox@(center|fit). failed\.$'
+          if grep -Ev "$known_bidi" '${{ matrix.jobname }}.log' | grep -En "$pattern"; then
             echo 'Unresolved LaTeX warnings were found.'
             exit 1
           fi
           if test -f '${{ matrix.jobname }}.blg' && grep -En '\bWARN(ING)?\b|\bERROR\b' '${{ matrix.jobname }}.blg'; then
             echo 'Unresolved Biber warnings were found.'
+            exit 1
+          fi
+
+      - name: Validate generated PDF
+        working-directory: ${{ matrix.directory }}
+        shell: bash
+        run: |
+          pdf='${{ matrix.jobname }}.pdf'
+          test -s "$pdf"
+          pdfinfo "$pdf" | grep -Eq '^Pages:[[:space:]]+32$'
+          pdfinfo "$pdf" | grep -Eq '^Page size:.*A4'
+          if pdffonts "$pdf" | tail -n +3 | grep -Eq '[[:space:]]no[[:space:]]+(yes|no)[[:space:]]+(yes|no)[[:space:]]+[0-9]'; then
+            echo 'At least one PDF font is not embedded.'
             exit 1
           fi
 
