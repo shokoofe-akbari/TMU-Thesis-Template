@@ -34,24 +34,28 @@ jobs:
             entry: Mas_Thesis_TMU.tex
             jobname: Mas_Thesis_TMU
             mode: bib
+            pages: 32
           - degree: MSc
             directory: MSc
             main: Mas_Thesis_TMU.tex
             entry: ManualBuildTest.tex
             jobname: ManualBuildTest
             mode: manual
+            pages: 31
           - degree: PhD
             directory: PhD
             main: PhD_Thesis_TMU.tex
             entry: PhD_Thesis_TMU.tex
             jobname: PhD_Thesis_TMU
             mode: bib
+            pages: 32
           - degree: PhD
             directory: PhD
             main: PhD_Thesis_TMU.tex
             entry: ManualBuildTest.tex
             jobname: ManualBuildTest
             mode: manual
+            pages: 31
 
     steps:
       - name: Checkout
@@ -100,7 +104,7 @@ jobs:
         run: |
           pdf='${{ matrix.jobname }}.pdf'
           test -s "$pdf"
-          pdfinfo "$pdf" | grep -Eq '^Pages:[[:space:]]+32$'
+          pdfinfo "$pdf" | grep -Eq '^Pages:[[:space:]]+${{ matrix.pages }}$'
           pdfinfo "$pdf" | grep -Eq '^Page size:.*A4'
           if pdffonts "$pdf" | tail -n +3 | grep -Eq '[[:space:]]no[[:space:]]+(yes|no)[[:space:]]+(yes|no)[[:space:]]+[0-9]'; then
             echo 'At least one PDF font is not embedded.'
