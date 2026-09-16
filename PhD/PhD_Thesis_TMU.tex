@@ -87,6 +87,9 @@
 %بسته زیر برای استفاده از فایل‌هایی که به صورت عکس یا pdf است، می‌باشد.
 \usepackage{graphicx}
 
+%بسته زیر برای درج مستقیم صفحات یک فایل PDF، مانند تأییدیه امضاشده استادان، استفاده می‌شود.
+\usepackage{pdfpages}
+
 %بسته زیر برای ارجاع دادن در داخل متن به مرجع یا یک مطلب عنوان‌دار (مانند قضیه، تعریف، لم، و ...) در همان متن استفاده می‌شود.
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=magenta,urlcolor=Plum}
@@ -293,6 +296,8 @@
 
 %برای وارد کردن مشخصات خود و امضاء هیئت داوران، وارد پوشه Attributes شوید و اطلاعات خود را در فایل Ta'id.tex وارد کنید.
 \input{Attributes/Ta'id}
+%پس از آماده شدن تأییدیه امضاشده، فایل Ta'id.pdf را در پوشه Figures قرار دهید؛ سپس خط بالا را کامنت و دستور زیر را از حالت کامنت خارج کنید.
+%\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{Figures/Ta'id.pdf}
 
 \newpage
 
