@@ -97,8 +97,6 @@
 }
 \vskip 4ex
 %\baselineskip=.750cm
-\centerline{\large \bfseries\onvan}
-\vskip -.5cm
  {\huge\bfseries {\baselineskip=1cm \@title}}\baselineskip=1.5cm\par
 \vskip 1ex
  \baselineskip=.7cm
@@ -259,7 +257,6 @@ Advisors
 
 \fi}
 
-\def\onvan{عنوان}
 \def\writtenfor{رساله }
 \def\by{دانشجو}
 \def\latinby{By}
