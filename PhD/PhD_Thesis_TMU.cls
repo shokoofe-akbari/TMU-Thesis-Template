@@ -24,7 +24,7 @@
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
 \RequirePackage{amsmath}
-\RequirePackage[top=40mm, bottom=40mm, left=25mm, right=35mm]{geometry}
+\RequirePackage[top=25mm, bottom=25mm, left=25mm, right=25mm]{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{framed} 
 \RequirePackage{lastpage}
@@ -83,15 +83,6 @@
 {\large\@faculty\par
 \vspace{-3ex}\@department}\par
 \vspace{-2ex}
- \if@mscthesis
-{\large\bfseries پایان‌نامه}
-\else
- \if@bscthesis
- {\large\bfseries پروژه }
- \else
-%{\large\bfseries رساله}
-\fi\fi
-%\vskip 2ex
 {\large\bfseries\writtenfor
 \if@mscthesis
 کارشناسی ارشد
@@ -99,8 +90,10 @@
 \if@bscthesis
 کارشناسی
 \else
-\Fathesisfield
+دکتری
 \fi\fi
+\par\vspace{.5ex}
+\Fathesisfield
 }
 \vskip 4ex
 %\baselineskip=.750cm
@@ -190,18 +183,16 @@
 \vskip 9mm
 %{
  \if@mscthesis
-Dissertation Submitted in Partial 
+A Thesis Submitted in Partial Fulfillment of the
 \\[.2cm]
-Fulfillment of The Requirements For The
-\\[.2cm]
-Degree of Master of Science in
+Requirements for the Degree of Master of Science in
 \else
-Doctoral Thesis Submitted in Partial 
+A Dissertation Submitted in Partial Fulfillment of the
 \\[.2cm]
-Fulfillment of the  Requirements for the
+Requirements for the Degree of Doctor of Philosophy in
+\fi
 \\[.2cm]
 \Enthesisfield
-\fi
 \\[.7cm]
 Title
 \vskip 1cm
@@ -287,8 +278,7 @@ Advisors
 %
 \pagestyle{fancy}
 \fancyhf{} 
-\fancyhead[OL,EL]{\thepage}
-\fancyhead[OR]{\small\rightmark}
-\fancyhead[ER]{\small\leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
 \renewcommand{\chaptermark}[1]{%
 \markboth{\thechapter.\ #1}{}}

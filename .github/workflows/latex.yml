@@ -34,28 +34,28 @@ jobs:
             entry: Mas_Thesis_TMU.tex
             jobname: Mas_Thesis_TMU
             mode: bib
-            pages: 32
+            pages: 29
           - degree: MSc
             directory: MSc
             main: Mas_Thesis_TMU.tex
             entry: ManualBuildTest.tex
             jobname: ManualBuildTest
             mode: manual
-            pages: 31
+            pages: 29
           - degree: PhD
             directory: PhD
             main: PhD_Thesis_TMU.tex
             entry: PhD_Thesis_TMU.tex
             jobname: PhD_Thesis_TMU
             mode: bib
-            pages: 32
+            pages: 29
           - degree: PhD
             directory: PhD
             main: PhD_Thesis_TMU.tex
             entry: ManualBuildTest.tex
             jobname: ManualBuildTest
             mode: manual
-            pages: 31
+            pages: 29
 
     steps:
       - name: Checkout

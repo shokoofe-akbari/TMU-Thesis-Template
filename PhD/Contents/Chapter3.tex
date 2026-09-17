@@ -11,6 +11,59 @@
 \end{align}
 نوشته می‌شود. خطای نهایی در زمان $T$ با $e_{\Delta t}=\lVert x(T)-x_N\rVert$ سنجیده می‌شود، که در آن $N=T/\Delta t$ است.
 
+برای حالت برداری $\bm{x}\in\R^d$، گام عددی و تابع هدف کمترین مربعات به‌صورت فشرده در دستگاه زیر قرار می‌گیرند:
+\begin{empheq}[box=\fbox]{align}
+  \bm{x}_{k+1}
+  &=\bm{x}_k+\Delta t\,\bm{f}(t_k,\bm{x}_k;\bm{\theta}),
+  \label{eq:vector-euler}\\
+  J(\bm{\theta})
+  &=\frac{1}{2}\sum_{i=1}^{m}
+  \left\lVert \bm{y}_i-\bm{h}\bigl(\bm{x}(t_i;\bm{\theta})\bigr)\right\rVert_2^2.
+  \label{eq:vector-objective}
+\end{empheq}
+
+\begin{algorithm}[htbp]
+  \caption{محاسبهٔ مسیر با روش اویلر صریح}
+  \label{alg:explicit-euler}
+  \begin{latin}
+  \begin{algorithmic}[1]
+    \Require $t_0$, $T$, $\Delta t$, $x_0$, $\theta$
+    \Ensure $\{(t_k,x_k)\}_{k=0}^{N}$
+    \State $k\gets 0$, $t_k\gets t_0$, $x_k\gets x_0$
+    \While{$t_k<T$}
+      \State $x_{k+1}\gets x_k+\Delta t\,f(t_k,x_k;\theta)$
+      \State $t_{k+1}\gets t_k+\Delta t$
+      \State $k\gets k+1$
+    \EndWhile
+    \State \Return $\{(t_j,x_j)\}_{j=0}^{k}$
+  \end{algorithmic}
+  \end{latin}
+\end{algorithm}
+
+پیاده‌سازی متناظر در کد \ref{lst:euler-python} همان ترتیب محاسبات الگوریتم \ref{alg:explicit-euler} را حفظ می‌کند.
+
+\begin{latin}
+\begin{lstlisting}[
+  style=TMUPython,
+  float=htbp,
+  captionpos=b,
+  caption={Explicit Euler implementation},
+  label={lst:euler-python}
+]
+def explicit_euler(rhs, t0, x0, final_time, step, parameters):
+    times = [t0]
+    states = [x0]
+    while times[-1] < final_time:
+        dt = min(step, final_time - times[-1])
+        next_state = states[-1] + dt * rhs(
+            times[-1], states[-1], parameters
+        )
+        times.append(times[-1] + dt)
+        states.append(next_state)
+    return times, states
+\end{lstlisting}
+\end{latin}
+
 \section{مطالعهٔ همگرایی}
 
 برای مدل معیار \eqref{eq:test-model} با $\theta=1$ و $T=1$، جواب دقیق برابر $\exp(-t)$ و تقریب اویلر در زمان نهایی برابر $(1-\Delta t)^{1/\Delta t}$ است. مرتبهٔ تجربی از رابطهٔ

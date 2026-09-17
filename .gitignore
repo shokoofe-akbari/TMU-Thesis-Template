@@ -38,6 +38,7 @@
 Thumbs.db
 .idea/
 .vscode/
+tmp/
 
 # Distribution output
 dist/

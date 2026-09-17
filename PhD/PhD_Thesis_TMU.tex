@@ -35,6 +35,10 @@
 %بسته زیر یک افزونه برای بسته قدرتمند amsmath است که امکانات اضافی و بهبودیافته‌ای برای نوشتن فرمول‌های ریاضی و تنظیمات ریاضی ارائه می‌دهد. 
 \usepackage{mathtools}
 
+%بسته‌های زیر برای بردارها و ماتریس‌های پررنگ و قاب‌بندی دستگاه‌های معادلات هستند.
+\usepackage{bm}
+\usepackage{empheq}
+
 %بسته زیر برای رسم دیاگرام‌های جابجایی ساده است.
 \usepackage{amscd}
 
@@ -50,18 +54,24 @@
 %بسته زیر مربوط به مدیریت و فرمت‌دهی به بخش‌های ضمیمه است.
 \usepackage{appendix}
 
-%بسته زیر برای ترسیم خطوط نقطه‌چین و خط‌چین در جدول‌ها و ماتریس‌ها استفاده می‌شود.
-\usepackage{arydshln}
-
 %بسته زیر برای ایجاد و نمایش آرایه‌ها و ماتریس‌های بلوکی (block arrays and matrices) استفاده می‌شود.
 \usepackage{blkarray}
 
 %بسته زیر برای رسم حرفه‌ای خطوط و فاصله‌گذاری جدول‌ها استفاده می‌شود.
 \usepackage{booktabs}
 
+%بسته‌های زیر برای جدول‌های چندصفحه‌ای، جدول‌های با عرض کنترل‌شده و سرستون‌های حرفه‌ای هستند.
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{makecell}
+
+%این بسته باید پس از بسته‌های اصلی جدول بارگذاری شود.
+\usepackage{arydshln}
+
 %بسته زیر برای وارد کردن کپشن (زیرنویس) است. همچنین دستور بعدی برای تنظیم اندازه متن کپشن می‌باشد. 
 \usepackage{caption}
 \captionsetup{font=footnotesize}
+\usepackage{subcaption}
 
 %دستور زیر برای ایجاد مراجع جداگانه برای هر فصل است.
 %\usepackage{chapterbib}
@@ -69,20 +79,22 @@
 %بسته زیر برای تغییر و کنترل شمارشگرهای (counters) مختلف در سند به کار می‌رود. (این بسته به شما امکان می‌دهد که نحوه شماره‌گذاری عناصری مانند جداول، شکل‌ها، بخش‌ها، زیربخش‌ها، معادلات و سایر اجزای سند را به ‌صورت دلخواه تغییر دهید.(
 \usepackage{chngcntr}
 
-%بسته زیر برای بهبود بخشیدن به ارجاع دادن بطور خودکار، بدون نیاز به وارد کردن دستی عنوان، در داخل متن به مرجع یا یک مطلب عنوان‌دار (مانند قضیه، تعریف، لم، و ...) در همان متن استفاده می‌شود.
-\usepackage{cleveref}
-
-%دستور زیر برای نمایش دادن تاریخ انگلیسی-آمریکایی بطور اتوماتیک است که امکانات بیشتری نسبت به دستور ساده \today دارد.
+%این بسته فقط در صورت انتخاب تاریخ خودکار در فایل مشخصات انگلیسی به کار می‌رود.
 \usepackage[en-US]{datetime2}
 
 %بسته زیر برای استفاده از محیط‌های بصورت لیست، یعنی enumerate (شماره‌دار)، itemize (بدون شماره) است.
 \usepackage{enumitem}
 
-%بسته زیر برای استفاده از فونت‌های ریاضی مانند \infty، \prime، \vdots، و ... است.
-\usepackage{fdsymbol}
+%نمادهای ریاضی استاندارد از amssymb و amsfonts تأمین می‌شوند. بسته fdsymbol عمداً
+%بارگذاری نشده است، زیرا همراه مجموعه کامل بسته‌های ریاضی از سقف symbol font عبور می‌کند.
 
 %بسته زیر برای مدیریت و کنترل بهتر محل قرارگیری اشیاء شناور (floats) مانند تصاویر، جداول و دیاگرام‌ها استفاده می‌شود.
 \usepackage{float}
+
+%بسته‌های زیر برای الگوریتم شبه‌کد و کد منبع هستند.
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
 
 %بسته زیر برای استفاده از فایل‌هایی که به صورت عکس یا pdf است، می‌باشد.
 \usepackage{graphicx}
@@ -93,6 +105,9 @@
 %بسته زیر برای ارجاع دادن در داخل متن به مرجع یا یک مطلب عنوان‌دار (مانند قضیه، تعریف، لم، و ...) در همان متن استفاده می‌شود.
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=magenta,urlcolor=Plum}
+
+%ارجاع هوشمند باید پس از hyperref بارگذاری شود.
+\usepackage{cleveref}
 
 %بسته زیر برای تنظیم رمزگذاری ورودی، مانند ایجاد فاصله اولین کلمه از ابتدای خط در محیط‌های چپ‌چین مانند flushleft، است.
 % فایل منبع با UTF-8 ذخیره شده و XeLaTeX آن را مستقیماً می‌خواند.
@@ -106,6 +121,9 @@
 %بسته زیر برای استفاده از فونت‌های اسکریپتی ریاضی (script fonts) مانند مجموعه‌ها، فضاها، توابع و ... است که با دستور \mathscr استفاده می‌شود.
 \usepackage{mathrsfs}
 
+%بسته زیر برای نمایش استاندارد کمیت‌ها و یکاهای علمی است.
+\usepackage{siunitx}
+
 %بسته زیر برای دو ستونه یا چند ستونه کردن متن است. (با این دستور می‌توان متن را تا حداکثر 10 ستون نوشت) 
 \usepackage{multicol} 
 
@@ -117,6 +135,10 @@
 
 %بسته زیر برای قرار دادن متون پاراگرافی (به‌صورت چپ‌چین یا راست‌چین) در داخل اشکال هندسی رسم‌شده یا به ‌طور کلی در داخل محیط‌های گرافیکی، مانند آنچه در بسته tikz ایجاد می‌شود، استفاده می‌شود. هدف اصلی این بسته، امکان درج متون به‌صورت پاراگراف (نه فقط یک خط) در اشیاء گرافیکی است.
 \usepackage{ptext}
+
+%بسته‌های زیر برای صفحات افقی و جلوگیری از عبور شناورها از مرز بخش‌ها هستند.
+\usepackage{pdflscape}
+\usepackage{placeins}
 
 %دستور زیر برای نمایش دادن برچسب‌هایی (label) که در زمان تایپ استفاده کرده‌اید، در فایل pdf خروجی است.
 %\usepackage{showkeys}
@@ -174,8 +196,8 @@
 %دستور زیر برای استفاده از شکل‌ها از پوشه \Figures است.
 \graphicspath{{Figures/}} 
 
-%دستور زیر برای تنظیم فاصله بین دو خط در کل متن است.
-\linespread{1.8}
+%فاصله خطوط پیشنهادی راهنمای تحویل پایان‌نامه.
+\linespread{1.5}
 
 % فونت‌های محلی همین پوشه
 \settextfont[
@@ -222,6 +244,38 @@
   ItalicFont={texgyretermes-italic},
   BoldItalicFont={texgyretermes-bolditalic}
 ]{texgyretermes-regular}
+
+%شماره‌گذاری فصل‌محور با جداکننده خط تیره مطابق راهنمای دانشگاه.
+\renewcommand{\thesection}{\thechapter-\arabic{section}}
+\renewcommand{\thesubsection}{\thesection-\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection-\arabic{subsubsection}}
+\renewcommand{\theequation}{\thechapter-\arabic{equation}}
+\renewcommand{\thefigure}{\thechapter-\arabic{figure}}
+\renewcommand{\thetable}{\thechapter-\arabic{table}}
+\counterwithin{algorithm}{chapter}
+\renewcommand{\thealgorithm}{\thechapter-\arabic{algorithm}}
+\AtBeginDocument{%
+  \counterwithin{lstlisting}{chapter}%
+  \renewcommand{\thelstlisting}{\thechapter-\arabic{lstlisting}}%
+}
+\floatname{algorithm}{الگوریتم}
+\renewcommand{\lstlistingname}{\rl{کد}}
+\renewcommand{\lstlistlistingname}{\rl{فهرست کدها}}
+\lstdefinestyle{TMUPython}{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue!70!black}\bfseries,
+  commentstyle=\color{green!45!black},
+  stringstyle=\color{red!60!black},
+  numbers=left,
+  numberstyle=\tiny\color{black!60},
+  stepnumber=1,
+  numbersep=8pt,
+  frame=single,
+  breaklines=true,
+  showstringspaces=false,
+  columns=fullflexible
+}
 %
 %
 %دستورهای زیر برای نمایش دادن ترجمه عنوان‌های معمول در ریاضی، مانند تعریف، قضیه، گزاره، لم و ... هستند. در زمان تایپ، از عبارت‌هایی در {} اول بعد از کلمه \newtheorem آمده‌اند، استفاده کنید.  
@@ -301,13 +355,13 @@
 
 \newpage
 
-%دستور زیر برای وارد کردن مشخصات و امضاء خود در آیین‌نامه چاپ است. (پوشه Attributes، فایل (Chap.tex
-\input{Attributes/Chap}
+%دستور زیر برای وارد کردن مشخصات و امضاء خود در آیین‌نامه حق مالکیت است. (پوشه Attributes، فایل (Malekiat.tex
+\input{Attributes/Malekiat}
 
 \newpage
 
-%دستور زیر برای وارد کردن مشخصات و امضاء خود در آیین‌نامه حق مالکیت است. (پوشه Attributes، فایل (Malekiat.tex
-\input{Attributes/Malekiat}
+%دستور زیر برای وارد کردن مشخصات و امضاء خود در آیین‌نامه چاپ است. (پوشه Attributes، فایل (Chap.tex
+\input{Attributes/Chap}
 
 \newpage
 
@@ -344,6 +398,11 @@
 %دستور زیر برای وارد شدن فهرست جدول‌ها، بطور خودکار، است. (برای عدم استفاده از این دستور، علامت % را ابتدای دستورهای موجود در دو خط پایین اضافه کنید).
 \listoftables
 \clearpage 
+
+%در صورت وجود الگوریتم یا قطعه‌کد شماره‌دار، دو دستور زیر را از حالت کامنت خارج کنید.
+%\listofalgorithms
+%\lstlistoflistings
+%\clearpage
 
 %دستور زیر برای شماره‌گذاری صفحات بعد از این دستور، به صورت عدد، یعنی 1، 2، 3، ... است.
 \pagenumbering{arabic} 
